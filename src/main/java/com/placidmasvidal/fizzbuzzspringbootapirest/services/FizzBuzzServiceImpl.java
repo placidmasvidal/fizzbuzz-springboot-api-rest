@@ -3,20 +3,25 @@
  */
 package com.placidmasvidal.fizzbuzzspringbootapirest.services;
 
-import java.util.ArrayList;
+import java.util.ArrayList;	
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.placidmasvidal.fizzbuzzspringbootapirest.repositories.FizzBuzzRepository;
 
 /**
  * @author placidmasvidal
  *
  */
 @Service
-public class FizzBuzzService {
+public class FizzBuzzServiceImpl implements FizzService{
 	
-	public static int LIMIT;
+	@Autowired
+	private FizzBuzzRepository fizzBuzzRepository;
 	
+	public static int limit;
 	
 	public String calculateFizzBuzz(int input) {
         if (input % 15 == 0) {
@@ -34,7 +39,11 @@ public class FizzBuzzService {
 		for(int i = initNumber; i<limit; i++) {
 			fizzBuzzResultList.add(calculateFizzBuzz(i));
 		}
+		save(fizzBuzzResultList);
 		return fizzBuzzResultList;
 	}
 
+	public void save(List<String> fizzBuzzResult) {
+		fizzBuzzRepository.save(fizzBuzzResult);
+	}
 }

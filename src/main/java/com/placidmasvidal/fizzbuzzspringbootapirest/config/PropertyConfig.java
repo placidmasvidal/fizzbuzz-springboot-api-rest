@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import com.placidmasvidal.fizzbuzzspringbootapirest.services.FizzBuzzService;
+import com.placidmasvidal.fizzbuzzspringbootapirest.services.FizzBuzzServiceImpl;
 
 
 /**
@@ -26,7 +26,7 @@ public class PropertyConfig {
 	
 	@Bean
 	public void fizzBuzzServiceProperties() {
-		FizzBuzzService.LIMIT = Integer.valueOf(limit);
+		FizzBuzzServiceImpl.limit = Integer.valueOf(limit);
 
 	}
 	
