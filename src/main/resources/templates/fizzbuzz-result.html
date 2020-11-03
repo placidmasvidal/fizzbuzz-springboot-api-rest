@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>FizzBuzz</title>
+</head>
+<body>
+<!-- <p th:text="${input}">FizzBuzz</p>  -->
+
+<table>
+<tr th:each="string : ${fizzbuzzstring}">
+<td th:text="${string}"></td>
+</tr>
+</table>
+</body>
+</html>
