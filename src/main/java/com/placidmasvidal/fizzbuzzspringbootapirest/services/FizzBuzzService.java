@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class FizzBuzzService {
+	
+	public static int LIMIT;
+	
+	
 	public String calculateFizzBuzz(int input) {
         if (input % 15 == 0) {
             return "fizzbuzz";
