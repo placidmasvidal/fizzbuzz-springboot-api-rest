@@ -3,7 +3,8 @@
  */
 package com.placidmasvidal.fizzbuzzspringbootapirest.services;
 
-import java.util.ArrayList;	
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +40,11 @@ public class FizzBuzzServiceImpl implements FizzService{
 		for(int i = initNumber; i<limit; i++) {
 			fizzBuzzResultList.add(calculateFizzBuzz(i));
 		}
-		save(fizzBuzzResultList);
+		save(fizzBuzzResultList, LocalDateTime.now());
 		return fizzBuzzResultList;
 	}
 
-	public void save(List<String> fizzBuzzResult) {
-		fizzBuzzRepository.save(fizzBuzzResult);
+	public void save(List<String> fizzBuzzResult, LocalDateTime localDateTime) {
+		fizzBuzzRepository.save(fizzBuzzResult, localDateTime);
 	}
 }
