@@ -6,8 +6,6 @@ package com.placidmasvidal.fizzbuzzspringbootapirest.services;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.scheduling.annotation.Async;
-
 /**
  * @author placidmasvidal
  *

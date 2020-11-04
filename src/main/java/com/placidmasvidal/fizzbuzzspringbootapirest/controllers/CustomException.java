@@ -9,7 +9,11 @@ package com.placidmasvidal.fizzbuzzspringbootapirest.controllers;
  *
  */
 public class CustomException extends RuntimeException {
-	  private String message;
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String message;
 
 	  protected CustomException() {}
 

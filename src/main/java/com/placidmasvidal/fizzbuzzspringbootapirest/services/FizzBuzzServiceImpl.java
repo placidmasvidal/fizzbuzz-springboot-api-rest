@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.placidmasvidal.fizzbuzzspringbootapirest.repositories.FizzBuzzRepository;
@@ -36,7 +35,6 @@ public class FizzBuzzServiceImpl implements FizzService{
 		return String.valueOf(input);
 	}
 	
-//	@Async("taskExecutor")
 	public List<String> generateFizzBuzzResult(int initNumber, int limit){
 		List<String> fizzBuzzResultList = new ArrayList<>();
 		for(int i = initNumber; i<limit; i++) {
