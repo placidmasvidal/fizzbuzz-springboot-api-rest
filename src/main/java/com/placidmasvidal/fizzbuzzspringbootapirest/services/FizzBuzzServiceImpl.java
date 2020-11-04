@@ -25,6 +25,7 @@ public class FizzBuzzServiceImpl implements FizzService{
 	public static int limit;
 	
 	public String calculateFizzBuzz(int input) {
+		try {
         if (input % 15 == 0) {
             return "fizzbuzz";
         } else if (input % 5 == 0) {
@@ -32,19 +33,30 @@ public class FizzBuzzServiceImpl implements FizzService{
         } else if (input % 3 == 0) {
             return "fizz";
         }
+		} catch (Exception e){
+        	e.printStackTrace();
+        }
 		return String.valueOf(input);
 	}
 	
 	public List<String> generateFizzBuzzResult(int initNumber, int limit){
 		List<String> fizzBuzzResultList = new ArrayList<>();
+		try {
 		for(int i = initNumber; i<limit; i++) {
 			fizzBuzzResultList.add(calculateFizzBuzz(i));
 		}
 		save(fizzBuzzResultList, LocalDateTime.now());
+		} catch (Exception e){
+        	e.printStackTrace();
+        }
 		return fizzBuzzResultList;
 	}
 
 	public void save(List<String> fizzBuzzResult, LocalDateTime localDateTime) {
+		try {
 		fizzBuzzRepository.save(fizzBuzzResult, localDateTime);
+		} catch (Exception e){
+        	e.printStackTrace();
+        }
 	}
 }

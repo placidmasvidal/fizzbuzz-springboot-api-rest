@@ -32,9 +32,13 @@ public class FizzBuzzController {
 	
 	@RequestMapping("/fizzbuzz/")
 	public String getNumber(@RequestParam(name = "initNumber", required =false, defaultValue="-1") int initNumber, @RequestParam(name = "limit", required =false, defaultValue="-1") int limit, Model model) {		
+		try {
 		if(initNumber==-1) initNumber = ThreadLocalRandom.current().nextInt(0, FizzBuzzServiceImpl.limit);
 		if(limit==-1) limit = FizzBuzzServiceImpl.limit;
 		model.addAttribute("fizzbuzzstring", fizzBuzzService.generateFizzBuzzResult(initNumber, limit));
+		} catch (Exception e){
+        	e.printStackTrace();
+        }
 		return "fizzbuzz-result";
 	}
 	

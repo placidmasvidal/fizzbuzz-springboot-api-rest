@@ -26,12 +26,15 @@ public class ThreadConfig {
 	public Executor taskExecutor() {
 		LOGGER.debug("Creating Async Task Executor");
 		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		try {
 		executor.setCorePoolSize(2);
 		executor.setMaxPoolSize(2);
 		executor.setQueueCapacity(100);
 		executor.setThreadNamePrefix("FizzBuzzThread -");
 		executor.initialize();
-		
+		} catch (Exception e){
+        	e.printStackTrace();
+        }
 		return executor;
 	}
 }
