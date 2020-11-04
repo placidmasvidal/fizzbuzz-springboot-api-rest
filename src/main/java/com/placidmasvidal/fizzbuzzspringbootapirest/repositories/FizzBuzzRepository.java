@@ -21,7 +21,7 @@ import com.placidmasvidal.fizzbuzzspringbootapirest.controllers.CustomException;
 @Component
 public class FizzBuzzRepository {
 
-	@Async("specificTaskExecutor")
+	@Async("taskExecutor")
 	public void save(List<String> fizzBuzzResultList, LocalDateTime localDateTime) throws CustomException{
 
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter("fizzBuzz.log"))){
