@@ -12,6 +12,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.placidmasvidal.fizzbuzzspringbootapirest.controllers.CustomException;
+
 /**
  * @author placidmasvidal
  *
@@ -19,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FizzBuzzRepository {
 
-	public void save(List<String> fizzBuzzResultList, LocalDateTime localDateTime) {
+	public void save(List<String> fizzBuzzResultList, LocalDateTime localDateTime) throws CustomException{
 
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter("fizzBuzz.log"))){
 			for (String s : fizzBuzzResultList) {
@@ -29,7 +31,7 @@ public class FizzBuzzRepository {
 			bw.newLine();
 			bw.write(String.valueOf(localDateTime));
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new CustomException("I/O error writing fizzbuzz to log file");
 		}
 	}
 
