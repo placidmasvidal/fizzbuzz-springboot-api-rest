@@ -7,9 +7,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import com.placidmasvidal.fizzbuzzspringbootapirest.controllers.CustomException;
@@ -21,6 +21,7 @@ import com.placidmasvidal.fizzbuzzspringbootapirest.controllers.CustomException;
 @Component
 public class FizzBuzzRepository {
 
+	@Async("specificTaskExecutor")
 	public void save(List<String> fizzBuzzResultList, LocalDateTime localDateTime) throws CustomException{
 
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter("fizzBuzz.log"))){
