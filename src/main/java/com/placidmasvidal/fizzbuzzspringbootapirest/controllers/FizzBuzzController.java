@@ -5,6 +5,7 @@ package com.placidmasvidal.fizzbuzzspringbootapirest.controllers;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +32,8 @@ public class FizzBuzzController {
 	
 	@RequestMapping("/fizzbuzz/")
 	public String getNumber(@RequestParam(name = "initNumber", required =false, defaultValue="-1") int initNumber, @RequestParam(name = "limit", required =false, defaultValue="-1") int limit, Model model) {		
-		if(initNumber==-1) initNumber = ThreadLocalRandom.current().nextInt(0, fizzBuzzService.limit);
-		if(limit==-1) limit = fizzBuzzService.limit;
+		if(initNumber==-1) initNumber = ThreadLocalRandom.current().nextInt(0, FizzBuzzServiceImpl.limit);
+		if(limit==-1) limit = FizzBuzzServiceImpl.limit;
 		model.addAttribute("fizzbuzzstring", fizzBuzzService.generateFizzBuzzResult(initNumber, limit));
 		return "fizzbuzz-result";
 	}
